@@ -50,8 +50,9 @@ func _on_use_powerup(_type: int):
     current_powerup_stage = POWERUP_STAGES.IN_USE
 
 func _on_stop_powerup():
-    current_powerup_stage = POWERUP_STAGES.UNUSED
+    if current_powerup_stage != POWERUP_STAGES.INACTIVE:
+        current_powerup_stage = POWERUP_STAGES.UNUSED
 
 func _on_powerup_depleted() -> void:
-    current_powerup_stage = POWERUP_STAGES.INACTIVE
     self.emit_signal("stop_powerup")
+    current_powerup_stage = POWERUP_STAGES.INACTIVE
