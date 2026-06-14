@@ -34,23 +34,25 @@
 
 🚀 **BlastOff** is a casual endless runner with an emphasize on vector graphics. Available for web and android.
 
-
 ## How to play?
+
 ### 🎰 Gameplay overview
+
 - Avoid all obstacles
 - Survive and get high scores
 - Customize your skin to you liking!!
 
 ### 👨‍💻 Controls
+
 - Touch/Mouse controls:
-  - **Touch/Press on the right side** to move to right
-  - **Touch/Press on the left side** to move to left
-  - **Double tap** to activate/deactivate PowerUp
+    - **Touch/Press on the right side** to move to right
+    - **Touch/Press on the left side** to move to left
+    - **Double tap** to activate/deactivate PowerUp
 
 - Keyboard controls:
-  - Press **a** to move to right
-  - Press **d** to move to left
-  - Press **space** to activate/deactivate PowerUp
+    - Press **a** to move to right
+    - Press **d** to move to left
+    - Press **space** to activate/deactivate PowerUp
 
 ## 🔎 Overview
 

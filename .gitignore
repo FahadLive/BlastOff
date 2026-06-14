@@ -2,5 +2,10 @@
 .godot/
 android/
 
+export_presets.cfg
 build/
 *.env
+
+# Block all keystore files
+*.keystore
+*.jks
