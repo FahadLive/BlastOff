@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dikpya2pi0i66"]
+[gd_scene format=3 uid="uid://dikpya2pi0i66"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_lyfac"]
+[ext_resource type="Script" uid="uid://css71x7hcn7wl" path="res://main.gd" id="1_lyfac"]
 [ext_resource type="PackedScene" uid="uid://c1tug87fw4xs" path="res://Player/rocket.tscn" id="1_nmvdq"]
 [ext_resource type="PackedScene" uid="uid://cihqkayqkp35l" path="res://Background/background.tscn" id="5_rc5yt"]
-[ext_resource type="Shader" path="res://Shader/screenshake.gdshader" id="6_a3vbv"]
+[ext_resource type="Shader" uid="uid://yde5cps2tgk2" path="res://Shader/screenshake.gdshader" id="6_a3vbv"]
 [ext_resource type="PackedScene" uid="uid://v7o2t6i1gg47" path="res://spawner.tscn" id="7_bkyw2"]
 [ext_resource type="PackedScene" uid="uid://c7khim02dfxsw" path="res://Background/transition.tscn" id="10_ngmpp"]
 [ext_resource type="PackedScene" uid="uid://cd02qtpq2ias" path="res://UI/tutorial.tscn" id="11_ldlc6"]
@@ -15,26 +15,26 @@ shader_parameter/FactorA = Vector2(100, 100)
 shader_parameter/FactorB = Vector2(1, 1)
 shader_parameter/magnitude = Vector2(0.01, 0.01)
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" unique_id=1742463827]
 script = ExtResource("1_lyfac")
 
-[node name="Background" parent="." instance=ExtResource("5_rc5yt")]
+[node name="Background" parent="." unique_id=523503874 instance=ExtResource("5_rc5yt")]
 
-[node name="Rocket" parent="." instance=ExtResource("1_nmvdq")]
+[node name="Rocket" parent="." unique_id=828964568 instance=ExtResource("1_nmvdq")]
 position = Vector2(359, 129)
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=29194394]
 mix_target = 2
 bus = &"Music"
 
-[node name="Tutorial" parent="." instance=ExtResource("11_ldlc6")]
+[node name="Tutorial" parent="." unique_id=1108438763 instance=ExtResource("11_ldlc6")]
 visible = false
 
-[node name="Transition" parent="." instance=ExtResource("10_ngmpp")]
+[node name="Transition" parent="." unique_id=894365253 instance=ExtResource("10_ngmpp")]
 
-[node name="ScreenShake" type="CanvasLayer" parent="."]
+[node name="ScreenShake" type="CanvasLayer" parent="." unique_id=668259910]
 
-[node name="ColorRect" type="ColorRect" parent="ScreenShake"]
+[node name="ColorRect" type="ColorRect" parent="ScreenShake" unique_id=219986448]
 material = SubResource("ShaderMaterial_ke17k")
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,6 +43,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Spawner" parent="." instance=ExtResource("7_bkyw2")]
+[node name="Spawner" parent="." unique_id=664580899 instance=ExtResource("7_bkyw2")]
 
 [connection signal="finished" from="Music" to="." method="_on_music_finished"]
