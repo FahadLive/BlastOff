@@ -1,27 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0h7ptlod7ywd"]
+[gd_scene format=3 uid="uid://d0h7ptlod7ywd"]
 
-[ext_resource type="Texture2D" uid="uid://c064vw75gfid1" path="res://UI/Buttons/button_background.svg" id="1_gq5mb"]
-[ext_resource type="Script" path="res://UI/Buttons/game_button.gd" id="2_2iw6i"]
-[ext_resource type="Texture2D" uid="uid://ctpidl3kl83x1" path="res://UI/Buttons/button_pressed.svg" id="2_tea0a"]
-[ext_resource type="Texture2D" uid="uid://bqgyl66vbr8na" path="res://UI/Buttons/button_hover.svg" id="3_h51ae"]
+[ext_resource type="Texture2D" uid="uid://duxcdd2yyu2wn" path="res://UI/Buttons/base-button.png" id="1_jc2ax"]
+[ext_resource type="Script" uid="uid://wgkgdtrwvbi0" path="res://UI/Buttons/game_button.gd" id="2_2iw6i"]
 [ext_resource type="AudioStream" uid="uid://dgmjealr3lwp0" path="res://UI/Buttons/button_press.wav" id="3_kagay"]
 
-[node name="GameButton" type="TextureButton"]
+[node name="GameButton" type="TextureButton" unique_id=1084333655]
 custom_minimum_size = Vector2(150, 150)
 offset_right = 155.0
 offset_bottom = 110.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource("1_gq5mb")
-texture_pressed = ExtResource("2_tea0a")
-texture_hover = ExtResource("3_h51ae")
-texture_disabled = ExtResource("2_tea0a")
-texture_focused = ExtResource("3_h51ae")
+texture_normal = ExtResource("1_jc2ax")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("2_2iw6i")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=233123305]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,14 +23,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CenterContainer"]
+[node name="Label" type="Label" parent="CenterContainer" unique_id=334911053]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.8392157, 0.5058824, 0.05490196, 1)
 text = "Button"
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1487296071]
 stream = ExtResource("3_kagay")
 bus = &"UI"
 
