@@ -1,6 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://0ckqin0njvj4"]
+[gd_scene format=3 uid="uid://0ckqin0njvj4"]
 
-[ext_resource type="Script" path="res://UI/ingame_ui.gd" id="1_1hsrn"]
+[ext_resource type="Script" uid="uid://pvf7gn0w03jt" path="res://UI/ingame_ui.gd" id="1_1hsrn"]
 [ext_resource type="Texture2D" uid="uid://bgr81875a4doc" path="res://Collectables/powerup_progress_bar_back.svg" id="3_edk7p"]
 [ext_resource type="PackedScene" uid="uid://buxy1ejbko412" path="res://UI/star_count.tscn" id="3_pcjc4"]
 [ext_resource type="Texture2D" uid="uid://c85804f3jwved" path="res://Collectables/powerup_progress_bar.svg" id="4_xqn0h"]
@@ -70,13 +70,7 @@ corner_radius_bottom_left = 50
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j3kap"]
 
-[sub_resource type="InputEventAction" id="InputEventAction_3olf4"]
-action = &"TogglePowerup"
-
-[sub_resource type="Shortcut" id="Shortcut_tncji"]
-events = [SubResource("InputEventAction_3olf4")]
-
-[node name="ingame_ui" type="Control"]
+[node name="ingame_ui" type="Control" unique_id=507970535]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -87,7 +81,7 @@ mouse_filter = 1
 script = ExtResource("1_1hsrn")
 metadata/_edit_use_anchors_ = true
 
-[node name="WarningSign" type="AnimatedSprite2D" parent="."]
+[node name="WarningSign" type="AnimatedSprite2D" parent="." unique_id=430915618]
 visible = false
 material = SubResource("ShaderMaterial_sa2l3")
 position = Vector2(48, 37)
@@ -96,7 +90,7 @@ sprite_frames = SubResource("SpriteFrames_l5kil")
 autoplay = "default"
 frame_progress = 0.989522
 
-[node name="WholeScreen" type="VBoxContainer" parent="."]
+[node name="WholeScreen" type="VBoxContainer" parent="." unique_id=596311218]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
@@ -106,20 +100,20 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="ScoreBox" type="HBoxContainer" parent="WholeScreen"]
+[node name="ScoreBox" type="HBoxContainer" parent="WholeScreen" unique_id=1657651522]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 alignment = 1
 
-[node name="Panel" type="Panel" parent="WholeScreen/ScoreBox"]
+[node name="Panel" type="Panel" parent="WholeScreen/ScoreBox" unique_id=1970807912]
 custom_minimum_size = Vector2(250, 150)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_axw4p")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="WholeScreen/ScoreBox/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="WholeScreen/ScoreBox/Panel" unique_id=472855679]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -128,14 +122,14 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Control" type="Control" parent="WholeScreen/ScoreBox/Panel/VBoxContainer"]
+[node name="Control" type="Control" parent="WholeScreen/ScoreBox/Panel/VBoxContainer" unique_id=130215141]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="StarCount" parent="WholeScreen/ScoreBox/Panel/VBoxContainer" instance=ExtResource("3_pcjc4")]
+[node name="StarCount" parent="WholeScreen/ScoreBox/Panel/VBoxContainer" unique_id=1228229458 instance=ExtResource("3_pcjc4")]
 layout_mode = 2
 
-[node name="Score" type="Label" parent="WholeScreen/ScoreBox/Panel/VBoxContainer"]
+[node name="Score" type="Label" parent="WholeScreen/ScoreBox/Panel/VBoxContainer" unique_id=953200229]
 material = SubResource("ShaderMaterial_324iy")
 use_parent_material = true
 layout_mode = 2
@@ -150,35 +144,18 @@ theme_override_font_sizes/font_size = 64
 text = "Score"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="WholeScreen"]
+[node name="HBoxContainer" type="HBoxContainer" parent="WholeScreen" unique_id=186702654]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="WholeScreen/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="WholeScreen/HBoxContainer" unique_id=2110358116]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HSeparator2" type="HSeparator" parent="WholeScreen/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 50
-theme_override_styles/separator = SubResource("StyleBoxEmpty_j3kap")
-
-[node name="PowerupButton" type="Button" parent="WholeScreen/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-tooltip_text = "SPACE"
-mouse_default_cursor_shape = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-toggle_mode = true
-shortcut = SubResource("Shortcut_tncji")
-flat = true
-icon_alignment = 1
-expand_icon = true
-
-[node name="CenterContainer" type="CenterContainer" parent="WholeScreen/HBoxContainer/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="WholeScreen/HBoxContainer/VBoxContainer" unique_id=1197197422]
 layout_mode = 2
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="WholeScreen/HBoxContainer/VBoxContainer/CenterContainer"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="WholeScreen/HBoxContainer/VBoxContainer/CenterContainer" unique_id=1559259573]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -188,18 +165,18 @@ fill_mode = 3
 texture_under = ExtResource("3_edk7p")
 texture_progress = ExtResource("4_xqn0h")
 
-[node name="VSeparator2" type="VSeparator" parent="WholeScreen/HBoxContainer"]
+[node name="VSeparator2" type="VSeparator" parent="WholeScreen/HBoxContainer" unique_id=205567291]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_override_styles/separator = SubResource("StyleBoxEmpty_j3kap")
 
-[node name="VSeparator3" type="VSeparator" parent="WholeScreen/HBoxContainer"]
+[node name="VSeparator3" type="VSeparator" parent="WholeScreen/HBoxContainer" unique_id=64257971]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_override_styles/separator = SubResource("StyleBoxEmpty_j3kap")
 
-[node name="Control" type="Control" parent="WholeScreen"]
+[node name="Control" type="Control" parent="WholeScreen" unique_id=1243507632]
 layout_mode = 2
 size_flags_vertical = 3

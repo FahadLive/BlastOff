@@ -30,10 +30,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=615078548]
 clip_contents = true
@@ -57,8 +57,6 @@ font_size = 36
 
 [node name="StarCount" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1309505837 instance=ExtResource("2_aost8")]
 layout_mode = 2
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-font_size = 56.0
 
 [node name="HelpButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=262497932]
 layout_mode = 2
@@ -137,6 +135,7 @@ theme_override_constants/separation = 20
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
+alignment = 1
 
 [node name="Play" parent="MarginContainer/VBoxContainer/HBoxContainer/ButtonBox" unique_id=365328851 instance=ExtResource("1_524br")]
 custom_minimum_size = Vector2(300, 150)
