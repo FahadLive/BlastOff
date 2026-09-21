@@ -31,11 +31,11 @@ func _on_change_skin_button_pressed() -> void:
 	UiManager.emit_signal("opened_skin_selector")
 
 func _on_refresh(_node: Node = null) -> void:
-	$MarginContainer/VBoxContainer/Name.text = LeaderboardManager.current_display_name
+	$MarginContainer/VBoxContainer/CenterContainer/Name.text = LeaderboardManager.current_display_name
 	if not LeaderboardManager.is_leaderboard_allowed:
-		$MarginContainer/VBoxContainer/Name.hide()
+		$MarginContainer/VBoxContainer/CenterContainer/Name.hide()
 	else:
-		$MarginContainer/VBoxContainer/Name.show()
+		$MarginContainer/VBoxContainer/CenterContainer/Name.show()
 	_update_current_skin()
 
 func _update_current_skin(_node: Node = null) -> void:

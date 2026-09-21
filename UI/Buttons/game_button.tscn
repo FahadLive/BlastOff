@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d0h7ptlod7ywd"]
 
-[ext_resource type="Texture2D" uid="uid://duxcdd2yyu2wn" path="res://UI/Buttons/base-button.png" id="1_jc2ax"]
+[ext_resource type="Texture2D" uid="uid://bekik540ifiq0" path="res://UI/Buttons/base-button.png" id="1_jc2ax"]
 [ext_resource type="Script" uid="uid://wgkgdtrwvbi0" path="res://UI/Buttons/game_button.gd" id="2_2iw6i"]
 [ext_resource type="AudioStream" uid="uid://dgmjealr3lwp0" path="res://UI/Buttons/button_press.wav" id="3_kagay"]
 

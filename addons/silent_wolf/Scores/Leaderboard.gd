@@ -1,5 +1,7 @@
 extends Control
 
+signal main_menu_button_pressed
+
 const ScoreItem = preload("ScoreItem.tscn")
 const SWLogger = preload("res://addons/silent_wolf/utils/SWLogger.gd")
 
@@ -8,7 +10,7 @@ const SWLogger = preload("res://addons/silent_wolf/utils/SWLogger.gd")
 @onready var name_changer_node: LineEdit = $Panel/MarginContainer/Board/CenterContainer/DisplayNameContainer/HBoxContainer/NameChanger
 @onready var display_name_error: Label = $Panel/MarginContainer/Board/CenterContainer/DisplayNameContainer/Tip
 @onready var display_name_container: BoxContainer = $Panel/MarginContainer/Board/CenterContainer/DisplayNameContainer
-@onready var name_submit_button: Button = $Panel/MarginContainer/Board/CenterContainer/DisplayNameContainer/HBoxContainer/CenterContainer/ChangeName
+@onready var name_submit_button: TextureButton = $Panel/MarginContainer/Board/CenterContainer/DisplayNameContainer/HBoxContainer/CenterContainer/ChangeName
 
 const NAME_CHANGE_COOLDOWN_TEXT = "Username can only be changed after 2 minutes"
 
@@ -26,6 +28,7 @@ func _ready():
 	LeaderboardManager.display_name_change_failed.connect(_on_display_name_error)
 
 	self.child_entered_tree.connect(_reload_data)
+	self.main_menu_button_pressed.connect(_on_main_menu_button_pressed)
 
 	_reload_data()
 
@@ -186,3 +189,6 @@ func _on_name_change_time_timeout() -> void:
 func _on_line_edit_text_changed(new_text: String) -> void:
 	if display_name_error.is_visible_in_tree():
 		display_name_error.hide()
+
+func _on_main_menu_button_pressed() -> void:
+	UiManager.emit_signal("skipped_to_main_menu")

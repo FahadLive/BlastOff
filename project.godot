@@ -57,7 +57,8 @@ import/blender/enabled=false
 
 [gui]
 
-theme/custom_font="res://Fonts/Rubik-Bold.ttf"
+theme/default_font_hinting=0
+theme/custom_font="uid://cei1qxr1sela7"
 
 [input]
 

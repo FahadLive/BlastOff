@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://xo3au7rockv7" path="res://Player/Custom/Textures/apollo.svg" id="4_exd06"]
 [ext_resource type="Texture2D" uid="uid://c5oot6m0drq6p" path="res://UI/Buttons/statistics.png" id="4_uhcj7"]
 [ext_resource type="Texture2D" uid="uid://dnioc6ils51ev" path="res://UI/Buttons/play.png" id="5_olsk0"]
+[ext_resource type="Texture2D" uid="uid://1h6s7lhqf6nu" path="res://UI/base-panel.png" id="7_wd76h"]
 [ext_resource type="Texture2D" uid="uid://b187l17xsd3mq" path="res://UI/help_button.svg" id="8_oyxv5"]
 [ext_resource type="Texture2D" uid="uid://cpgst55n4u034" path="res://UI/Buttons/shop.png" id="11_uhcj7"]
 
@@ -54,38 +55,45 @@ button_text = ""
 pressed_signal_name = "main_menu_button_pressed"
 font_size = 36
 
-[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=555981212]
+[node name="StarCount" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1309505837 instance=ExtResource("2_aost8")]
 layout_mode = 2
-size_flags_horizontal = 3
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+font_size = 56.0
+
+[node name="HelpButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=262497932]
+layout_mode = 2
+size_flags_stretch_ratio = 0.4
+texture_normal = ExtResource("8_oyxv5")
+stretch_mode = 3
 
 [node name="Stat" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=177227140 instance=ExtResource("1_524br")]
 layout_mode = 2
+size_flags_horizontal = 1
 texture_normal = ExtResource("4_uhcj7")
 button_text = ""
 pressed_signal_name = "statistics_button_pressed"
 font_size = 36
 
-[node name="HelpButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=262497932]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer" unique_id=620723807]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.4
-texture_normal = ExtResource("8_oyxv5")
-stretch_mode = 3
 
-[node name="Name" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1646086785]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/CenterContainer" unique_id=354946279]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+texture = ExtResource("7_wd76h")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer" unique_id=1646086785]
 layout_mode = 2
 size_flags_vertical = 1
 size_flags_stretch_ratio = 0.5
+theme_override_colors/font_color = Color(0.7764706, 0.31764707, 0, 1)
 theme_override_fonts/font = ExtResource("2_so53u")
-theme_override_font_sizes/font_size = 56
+theme_override_font_sizes/font_size = 36
 text = "Username"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="StarCount" parent="MarginContainer/VBoxContainer" unique_id=1309505837 instance=ExtResource("2_aost8")]
-layout_mode = 2
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-font_size = 56.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=133448271]
 layout_mode = 2
@@ -131,6 +139,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 8
 
 [node name="Play" parent="MarginContainer/VBoxContainer/HBoxContainer/ButtonBox" unique_id=365328851 instance=ExtResource("1_524br")]
+custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
 texture_normal = ExtResource("5_olsk0")
 button_text = "Play"
@@ -142,7 +151,12 @@ visible = false
 theme_override_font_sizes/font_size = 36
 text = "Play"
 
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/ButtonBox" unique_id=727555936]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="ChangeSkin" parent="MarginContainer/VBoxContainer/HBoxContainer/ButtonBox" unique_id=1648909987 instance=ExtResource("1_524br")]
+custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
 texture_normal = ExtResource("11_uhcj7")
 button_text = ""
