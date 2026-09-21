@@ -1,15 +1,35 @@
-[gd_scene load_steps=9 format=3 uid="uid://cnm0pbmrsqbp"]
+[gd_scene format=3 uid="uid://cnm0pbmrsqbp"]
 
 [ext_resource type="PackedScene" uid="uid://d0h7ptlod7ywd" path="res://UI/Buttons/game_button.tscn" id="1_524br"]
-[ext_resource type="Script" path="res://UI/start_menu.gd" id="1_p6swl"]
+[ext_resource type="Script" uid="uid://cnuathnr6cix4" path="res://UI/start_menu.gd" id="1_p6swl"]
 [ext_resource type="PackedScene" uid="uid://buxy1ejbko412" path="res://UI/star_count.tscn" id="2_aost8"]
 [ext_resource type="Texture2D" uid="uid://6jimbg33yd70" path="res://Player/rocket-base.svg" id="2_cykn7"]
 [ext_resource type="FontFile" uid="uid://cei1qxr1sela7" path="res://Fonts/Rubik-Bold.ttf" id="2_so53u"]
+[ext_resource type="Texture2D" uid="uid://ex5qsea2ohe8" path="res://UI/Buttons/back.png" id="3_umcuc"]
 [ext_resource type="Texture2D" uid="uid://t4tipga3a8c7" path="res://Player/Custom/Colors/blue.svg" id="3_vmfyq"]
 [ext_resource type="Texture2D" uid="uid://xo3au7rockv7" path="res://Player/Custom/Textures/apollo.svg" id="4_exd06"]
+[ext_resource type="Texture2D" uid="uid://c5oot6m0drq6p" path="res://UI/Buttons/statistics.png" id="4_uhcj7"]
+[ext_resource type="Texture2D" uid="uid://dnioc6ils51ev" path="res://UI/Buttons/play.png" id="5_olsk0"]
+[ext_resource type="Texture2D" uid="uid://1h6s7lhqf6nu" path="res://UI/base-panel.png" id="7_wd76h"]
 [ext_resource type="Texture2D" uid="uid://b187l17xsd3mq" path="res://UI/help_button.svg" id="8_oyxv5"]
+[ext_resource type="FontFile" uid="uid://djl4wbratin4d" path="res://Fonts/Rubik-Regular.ttf" id="9_5ik5c"]
+[ext_resource type="Texture2D" uid="uid://chu0d640xmyoe" path="res://UI/Buttons/edit.png" id="9_wpq38"]
+[ext_resource type="Texture2D" uid="uid://7mx2310hjxlf" path="res://UI/Buttons/save.png" id="10_wpq38"]
+[ext_resource type="Texture2D" uid="uid://cpgst55n4u034" path="res://UI/Buttons/shop.png" id="11_uhcj7"]
 
-[node name="StartMenu" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cocec"]
+bg_color = Color(0.98859614, 0.9719983, 0.99999994, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.83137256, 0.47843137, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="StartMenu" type="Control" unique_id=1762339210]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,130 +38,240 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p6swl")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1875299799]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=615078548]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Name" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=816366487]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 0
 size_flags_stretch_ratio = 0.5
+alignment = 2
+
+[node name="Back" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1181506253 instance=ExtResource("1_524br")]
+layout_mode = 2
+texture_normal = ExtResource("3_umcuc")
+stretch_mode = 4
+button_text = ""
+pressed_signal_name = "main_menu_button_pressed"
+font_size = 36
+
+[node name="StarCount" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1309505837 instance=ExtResource("2_aost8")]
+layout_mode = 2
+
+[node name="HelpButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=262497932]
+layout_mode = 2
+size_flags_stretch_ratio = 0.4
+texture_normal = ExtResource("8_oyxv5")
+stretch_mode = 3
+
+[node name="Stat" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=177227140 instance=ExtResource("1_524br")]
+layout_mode = 2
+size_flags_horizontal = 1
+texture_normal = ExtResource("4_uhcj7")
+button_text = ""
+pressed_signal_name = "statistics_button_pressed"
+font_size = 36
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer" unique_id=620723807]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/CenterContainer" unique_id=354946279]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+texture = ExtResource("7_wd76h")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="DisplayNameContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CenterContainer" unique_id=178160504]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CenterContainer/DisplayNameContainer" unique_id=1146087778]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer/DisplayNameContainer/HBoxContainer" unique_id=1646086785]
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.5
+theme_override_colors/font_color = Color(0.7764706, 0.31764707, 0, 1)
 theme_override_fonts/font = ExtResource("2_so53u")
-theme_override_font_sizes/font_size = 56
+theme_override_font_sizes/font_size = 36
 text = "Username"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StarCount" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_aost8")]
+[node name="NameEditButton" type="TextureButton" parent="MarginContainer/VBoxContainer/CenterContainer/DisplayNameContainer/HBoxContainer" unique_id=408216767]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-font_size = 56.0
+texture_normal = ExtResource("9_wpq38")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+[node name="NameChange" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CenterContainer/DisplayNameContainer" unique_id=1021339564]
+custom_minimum_size = Vector2(300, 40)
 layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 3.0
-theme_override_constants/separation = 20
-
-[node name="ButtonBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Play" parent="MarginContainer/VBoxContainer/HBoxContainer/ButtonBox" instance=ExtResource("1_524br")]
-layout_mode = 2
-button_text = "Play"
-pressed_signal_name = "play_button_pressed"
-font_size = 36
-
-[node name="Stat" parent="MarginContainer/VBoxContainer/HBoxContainer/ButtonBox" instance=ExtResource("1_524br")]
-layout_mode = 2
-button_text = "Statistics"
-pressed_signal_name = "statistics_button_pressed"
-font_size = 36
-
-[node name="Back" parent="MarginContainer/VBoxContainer/HBoxContainer/ButtonBox" instance=ExtResource("1_524br")]
-layout_mode = 2
-button_text = "Main Menu"
-pressed_signal_name = "main_menu_button_pressed"
-font_size = 36
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
+theme_override_constants/separation = -5
 alignment = 1
 
-[node name="RocketSkin" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="NameChanger" type="LineEdit" parent="MarginContainer/VBoxContainer/CenterContainer/DisplayNameContainer/NameChange" unique_id=518470126]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0.15487623, 0.15487584, 0.15487593, 0.5019608)
+theme_override_colors/font_placeholder_color = Color(0.3050776, 0.30507696, 0.3050771, 0.6)
+theme_override_colors/caret_color = Color(0.11674074, 0.116740905, 0.11674125, 1)
+theme_override_colors/selection_color = Color(0.24557629, 0.31893256, 0.66656643, 1)
+theme_override_fonts/font = ExtResource("9_5ik5c")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_cocec")
+placeholder_text = "Your Name..."
+alignment = 1
+max_length = 8
+caret_blink = true
+text_direction = 1
+language = "en"
+
+[node name="CenterContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/CenterContainer/DisplayNameContainer/NameChange" unique_id=83889019]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+
+[node name="ChangeName" type="TextureButton" parent="MarginContainer/VBoxContainer/CenterContainer/DisplayNameContainer/NameChange/CenterContainer" unique_id=1752286380]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("10_wpq38")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CenterContainer/DisplayNameContainer/NameChange" unique_id=2112384689]
+layout_mode = 2
+
+[node name="Tip" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer/DisplayNameContainer" unique_id=597052757]
+visible = false
+custom_minimum_size = Vector2(350, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.827451, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_5ik5c")
+theme_override_font_sizes/font_size = 18
+text = "Username allowed after 2 minutes"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Score" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer/DisplayNameContainer" unique_id=837330624]
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.5
+theme_override_colors/font_color = Color(0.7764706, 0.31764707, 0, 1)
+theme_override_fonts/font = ExtResource("2_so53u")
+theme_override_font_sizes/font_size = 24
+text = "Score: ..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=133448271]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="RocketSkin" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=465646505]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="Base" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/RocketSkin"]
+[node name="Base" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer/RocketSkin" unique_id=1352263869]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("2_cykn7")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Color" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/RocketSkin"]
+[node name="Color" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer/RocketSkin" unique_id=76198030]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("3_vmfyq")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Texture" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/RocketSkin"]
+[node name="Texture" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer/RocketSkin" unique_id=1888798903]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("4_exd06")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ChangeSkin" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_524br")]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=944279504]
 layout_mode = 2
-button_text = "Change Skin"
+size_flags_stretch_ratio = 3.0
+theme_override_constants/separation = 20
+
+[node name="ButtonBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1971956266]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+alignment = 1
+
+[node name="Play" parent="MarginContainer/VBoxContainer/HBoxContainer/ButtonBox" unique_id=365328851 instance=ExtResource("1_524br")]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
+texture_normal = ExtResource("5_olsk0")
+button_text = "Play"
+pressed_signal_name = "play_button_pressed"
+font_size = 36
+
+[node name="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/ButtonBox/Play/CenterContainer" parent_id_path=PackedInt32Array(365328851, 233123305) index="0" unique_id=334911053]
+visible = false
+theme_override_font_sizes/font_size = 36
+text = "Play"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/ButtonBox" unique_id=727555936]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ChangeSkin" parent="MarginContainer/VBoxContainer/HBoxContainer/ButtonBox" unique_id=1648909987 instance=ExtResource("1_524br")]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
+texture_normal = ExtResource("11_uhcj7")
+button_text = ""
 pressed_signal_name = "change_skin_button_pressed"
 font_size = 32
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
-alignment = 2
+[node name="NameChangeTime" type="Timer" parent="." unique_id=860919071]
+wait_time = 120.0
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HelpButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.4
-texture_normal = ExtResource("8_oyxv5")
-stretch_mode = 3
+[node name="ErrorTimer" type="Timer" parent="." unique_id=1655049876]
+wait_time = 3.0
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/HelpButton" to="." method="_on_help_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CenterContainer/DisplayNameContainer/HBoxContainer/NameEditButton" to="." method="_on_name_edit_button_pressed"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/CenterContainer/DisplayNameContainer/NameChange/NameChanger" to="." method="_on_name_changer_text_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CenterContainer/DisplayNameContainer/NameChange/CenterContainer/ChangeName" to="." method="_on_change_name_pressed"]
+[connection signal="timeout" from="NameChangeTime" to="." method="_on_name_change_time_timeout"]
+[connection signal="timeout" from="ErrorTimer" to="." method="_on_error_timer_timeout"]
+
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/ButtonBox/Play"]

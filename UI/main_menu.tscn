@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://e1b43p4v5huu"]
+[gd_scene format=3 uid="uid://e1b43p4v5huu"]
 
-[ext_resource type="Script" path="res://UI/main_menu.gd" id="1_p0qic"]
+[ext_resource type="Script" uid="uid://dx54niyjt5ak5" path="res://UI/main_menu.gd" id="1_p0qic"]
 [ext_resource type="Texture2D" uid="uid://um1qa2qyq4vl" path="res://UI/title.svg" id="2_j4afl"]
-[ext_resource type="PackedScene" uid="uid://b2h8ok8yfc7wb" path="res://addons/silent_wolf/Scores/Leaderboard.tscn" id="4_s7dff"]
+[ext_resource type="Texture2D" uid="uid://csqmb2xvq5tre" path="res://UI/Buttons/start.png" id="4_f40uw"]
+[ext_resource type="Texture2D" uid="uid://ldmtxgdgqojo" path="res://UI/Buttons/settings-text.png" id="5_8ctay"]
+[ext_resource type="Texture2D" uid="uid://cn08tui778khb" path="res://UI/Buttons/leaderboard-text.png" id="5_f40uw"]
 [ext_resource type="PackedScene" uid="uid://d0h7ptlod7ywd" path="res://UI/Buttons/game_button.tscn" id="9_i0x8t"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=480191813]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,7 +18,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_p0qic")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=472825867]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,18 +30,18 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1174099140]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=928470214]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 
-[node name="Title" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="Title" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1274355897]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -47,44 +49,54 @@ texture = ExtResource("2_j4afl")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
-theme_override_constants/separation = 20
-
-[node name="ButtonBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="ButtonBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1175576567]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 40
 
-[node name="Play" parent="MarginContainer/VBoxContainer/HBoxContainer/ButtonBox" instance=ExtResource("9_i0x8t")]
+[node name="Play" parent="MarginContainer/VBoxContainer/ButtonBox" unique_id=1882256609 instance=ExtResource("9_i0x8t")]
 layout_mode = 2
+texture_normal = ExtResource("4_f40uw")
 button_text = "Start"
 pressed_signal_name = "start_button_pressed"
 font_size = 36
 
-[node name="Settings" parent="MarginContainer/VBoxContainer/HBoxContainer/ButtonBox" instance=ExtResource("9_i0x8t")]
+[node name="Label" parent="MarginContainer/VBoxContainer/ButtonBox/Play/CenterContainer" parent_id_path=PackedInt32Array(1882256609, 233123305) index="0" unique_id=334911053]
+visible = false
+theme_override_font_sizes/font_size = 36
+text = "Start"
+
+[node name="Settings" parent="MarginContainer/VBoxContainer/ButtonBox" unique_id=2141884410 instance=ExtResource("9_i0x8t")]
 layout_mode = 2
+texture_normal = ExtResource("5_8ctay")
 button_text = "Settings"
 pressed_signal_name = "settings_button_pressed"
 font_size = 36
 
-[node name="Quit" parent="MarginContainer/VBoxContainer/HBoxContainer/ButtonBox" instance=ExtResource("9_i0x8t")]
+[node name="Label" parent="MarginContainer/VBoxContainer/ButtonBox/Settings/CenterContainer" parent_id_path=PackedInt32Array(2141884410, 233123305) index="0" unique_id=334911053]
+visible = false
+theme_override_font_sizes/font_size = 36
+text = "Settings"
+
+[node name="Leaderboard" parent="MarginContainer/VBoxContainer/ButtonBox" unique_id=1084333655 instance=ExtResource("9_i0x8t")]
 layout_mode = 2
-button_text = "Quit"
-pressed_signal_name = "quit_button_pressed"
+texture_normal = ExtResource("5_f40uw")
+button_text = ""
+pressed_signal_name = "leaderboard_button_pressed"
 font_size = 36
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-alignment = 1
+[node name="Label" parent="MarginContainer/VBoxContainer/ButtonBox/Leaderboard/CenterContainer" parent_id_path=PackedInt32Array(1084333655, 233123305) index="0" unique_id=334911053]
+visible = false
+theme_override_font_sizes/font_size = 36
+text = ""
 
-[node name="Leaderboard2" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("4_s7dff")]
-layout_mode = 2
-
-[node name="Version" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Version" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1926336769]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "vX.X.X"
 horizontal_alignment = 1
+
+[editable path="MarginContainer/VBoxContainer/ButtonBox/Play"]
+[editable path="MarginContainer/VBoxContainer/ButtonBox/Settings"]
+[editable path="MarginContainer/VBoxContainer/ButtonBox/Leaderboard"]

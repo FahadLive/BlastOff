@@ -9,3 +9,5 @@ build/
 # Block all keystore files
 *.keystore
 *.jks
+
+addons/talo/settings.cfg

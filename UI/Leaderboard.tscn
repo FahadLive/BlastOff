@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://c4d60fficrb1c"]
+
+[ext_resource type="Script" uid="uid://be675sa27s3yc" path="res://UI/Leaderboard.gd" id="1_8anu0"]
+[ext_resource type="Texture2D" uid="uid://2to0ewxuvfp5" path="res://UI/full-panel.png" id="2_cr5xu"]
+[ext_resource type="Theme" uid="uid://d2eakbmaefnt6" path="res://UI/sw_theme.tres" id="3_b6vgr"]
+[ext_resource type="PackedScene" uid="uid://d0h7ptlod7ywd" path="res://UI/Buttons/game_button.tscn" id="4_uo42f"]
+[ext_resource type="Texture2D" uid="uid://ex5qsea2ohe8" path="res://UI/Buttons/back.png" id="5_smv8u"]
+[ext_resource type="FontFile" uid="uid://cei1qxr1sela7" path="res://Fonts/Rubik-Bold.ttf" id="6_0ioyu"]
+
+[node name="Leaderboard" type="Control" unique_id=147461000]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_8anu0")
+
+[node name="Panel" type="Control" parent="." unique_id=1507221456]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel" unique_id=1616575019]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_cr5xu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1091080141]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 120
+
+[node name="Board" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=2035582174]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_b6vgr")
+theme_override_constants/separation = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/MarginContainer/Board" unique_id=1777974658]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DisplayNameContainer" type="VBoxContainer" parent="Panel/MarginContainer/Board/CenterContainer" unique_id=1187894557]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Board/CenterContainer/DisplayNameContainer" unique_id=1995192138]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_constants/separation = -5
+
+[node name="CenterContainer2" type="MarginContainer" parent="Panel/MarginContainer/Board/CenterContainer/DisplayNameContainer/HBoxContainer" unique_id=1191207757]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+
+[node name="BackButton" parent="Panel/MarginContainer/Board/CenterContainer/DisplayNameContainer/HBoxContainer/CenterContainer2" unique_id=1084333655 instance=ExtResource("4_uo42f")]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("5_smv8u")
+stretch_mode = 4
+button_text = ""
+pressed_signal_name = "main_menu_button_pressed"
+
+[node name="Title" type="Label" parent="Panel/MarginContainer/Board/CenterContainer/DisplayNameContainer" unique_id=15696329]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.7764706, 0.31764707, 0, 1)
+theme_override_fonts/font = ExtResource("6_0ioyu")
+theme_override_font_sizes/font_size = 48
+text = "Leaderboard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextMessage" type="Label" parent="Panel/MarginContainer/Board" unique_id=881388050]
+clip_contents = true
+custom_minimum_size = Vector2(280, 10)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_0ioyu")
+theme_override_font_sizes/font_size = 28
+text = "Leaderboard is disabled in this version\\nTry reinstalling from itch.io"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ScoreItemContainer" type="VBoxContainer" parent="Panel/MarginContainer/Board" unique_id=1557798714]
+custom_minimum_size = Vector2(560, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="NameChangeTime" type="Timer" parent="." unique_id=2121315871]
+wait_time = 120.0
+
+[connection signal="timeout" from="NameChangeTime" to="." method="_on_name_change_time_timeout"]

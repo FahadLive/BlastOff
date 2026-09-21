@@ -1,12 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://buxy1ejbko412"]
+[gd_scene format=3 uid="uid://buxy1ejbko412"]
 
-[ext_resource type="Script" path="res://UI/star_count.gd" id="1_xvck5"]
+[ext_resource type="Script" uid="uid://c46jc7iccoeha" path="res://UI/star_count.gd" id="1_xvck5"]
 
-[node name="StarCount" type="RichTextLabel"]
-offset_right = 351.0
-offset_bottom = 51.0
-size_flags_horizontal = 3
-theme_override_colors/default_color = Color(0.299353, 0.273623, 0.268531, 1)
+[node name="CenterContainer" type="CenterContainer" unique_id=1383973892]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_vertical = 3
+
+[node name="StarCount" type="RichTextLabel" parent="." unique_id=787939323]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/normal_font_size = 42
 text = "					Stars"
 fit_content = true
