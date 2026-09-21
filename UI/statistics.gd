@@ -23,10 +23,16 @@ func _refresh(_node: Node = null) -> void:
 
 	if LeaderboardManager.is_leaderboard_allowed:
 		$"MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/Player Name".text = LeaderboardManager.current_display_name
-		var player_top_score: Dictionary = await SilentWolf.Scores.get_top_score_by_player(LeaderboardManager.player_id).sw_top_player_score_complete
-		var sw_result = await SilentWolf.Scores.get_score_position(player_top_score.top_score.score_id).sw_get_position_complete
-		leaderboard_rank.text = str(sw_result.position)
+		var player_top_score: Dictionary ={}
 
+		var top_score: Dictionary = player_top_score.get("top_score", {})
+
+		if not top_score.is_empty():
+			var sw_result: Dictionary = {}
+
+			leaderboard_rank.text = str(sw_result.get("position", "-"))
+		else:
+			leaderboard_rank.text = "-"
 		$"MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/Player Name".show()
 		leaderboard_rank.show()
 	else:

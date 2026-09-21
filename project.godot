@@ -32,10 +32,10 @@ StatManager="*res://Managers/stat_manager.gd"
 SoundManager="*res://Managers/sound_manager.gd"
 UiManager="*res://Managers/ui_manager.gd"
 DataManager="*res://Managers/data_manager.gd"
-PowerupManager="*res://Managers/powerup_manager.gd"
-SkinManager="*res://Managers/skin_manager.gd"
-SilentWolf="*uid://dvxfy2ufrymfq"
 LeaderboardManager="*res://Managers/leaderboard_manager.gd"
+PowerupManager="*res://Managers/powerup_manager.gd"
+Talo="*uid://bpmdn8oc34pg7"
+SkinManager="*uid://d1ptk73vcccio"
 
 [display]
 
@@ -49,7 +49,7 @@ window/handheld/orientation=1
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/silent_wolf/plugin.cfg")
+enabled=PackedStringArray("res://addons/talo/plugin.cfg")
 
 [filesystem]
 

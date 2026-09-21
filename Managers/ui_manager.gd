@@ -94,7 +94,7 @@ var menus = {
 	MENU_IDS.SKIN_SELECTOR: preload("res://UI/skin_selector.tscn").instantiate(),
 	MENU_IDS.STATISTICS: preload("res://UI/statistics.tscn").instantiate(),
 	MENU_IDS.GUIDE: preload("res://UI/guide.tscn").instantiate(),
-	MENU_IDS.LEADERBOARD: preload("res://addons/silent_wolf/Scores/Leaderboard.tscn").instantiate(),
+	MENU_IDS.LEADERBOARD: preload("res://UI/Leaderboard.tscn").instantiate(),
 }
 
 var need_basic_tutorial: bool = false
